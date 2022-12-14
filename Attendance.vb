@@ -4,7 +4,7 @@ Public Class Attendance
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
     Private Sub Attendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Con.Open()
         'Dim Sql = "select MemberName, MemberSex, MemberPhone From MemberTbl Order By MemberName Asc"
@@ -27,32 +27,37 @@ Public Class Attendance
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         Dim cmd As New SqlCommand("Select AttendanceDate from AttendanceTbl where AttendanceDate = @Date", Con)
         cmd.Parameters.AddWithValue("Date", AttendanceDTP.Value.Date)
-        Con.Open()
-        Dim myreader As SqlDataReader = cmd.ExecuteReader
-        If myreader.Read Then
-            Con.Close()
-            MsgBox("Attendance for this date already recorded")
-        Else
-            Con.Close()
-            For Each row As DataGridViewRow In AttendanceDGV.Rows
-                Dim cmd1 As New SqlCommand("Insert into AttendanceTbl(AttendanceDate, MemberName, MemberSex, MemberPhone, AttendanceStatus) Values(@Date, @Name, @sex, @Phone, @Status)", Con)
-                cmd1.Parameters.AddWithValue("@Date", AttendanceDTP.Value.Date)
-                cmd1.Parameters.AddWithValue("@Name", row.Cells("MemberName").Value)
-                cmd1.Parameters.AddWithValue("@Sex", row.Cells("MemberSex").Value)
-                cmd1.Parameters.AddWithValue("@Phone", row.Cells("MemberPhone").Value)
-                Dim statuscolumn As Integer
-                If Convert.ToBoolean(row.Cells("AttendanceStatus").Value) Then
-                    statuscolumn = 1
-                Else
-                    statuscolumn = 0
-                End If
-                cmd1.Parameters.AddWithValue("@Status", statuscolumn)
-                Con.Open()
-                cmd1.ExecuteNonQuery()
+        Try
+            Con.Open()
+            Dim myreader As SqlDataReader = cmd.ExecuteReader
+            If myreader.Read Then
                 Con.Close()
-            Next
-            MsgBox("Attendance recorded sucessfully")
-        End If
+                MsgBox("Attendance for this date already recorded")
+            Else
+                Con.Close()
+                For Each row As DataGridViewRow In AttendanceDGV.Rows
+                    Dim cmd1 As New SqlCommand("Insert into AttendanceTbl(AttendanceDate, MemberName, MemberSex, MemberPhone, AttendanceStatus) Values(@Date, @Name, @sex, @Phone, @Status)", Con)
+                    cmd1.Parameters.AddWithValue("@Date", AttendanceDTP.Value.Date)
+                    cmd1.Parameters.AddWithValue("@Name", row.Cells("MemberName").Value)
+                    cmd1.Parameters.AddWithValue("@Sex", row.Cells("MemberSex").Value)
+                    cmd1.Parameters.AddWithValue("@Phone", row.Cells("MemberPhone").Value)
+                    Dim statuscolumn As Integer
+                    If Convert.ToBoolean(row.Cells("AttendanceStatus").Value) Then
+                        statuscolumn = 1
+                    Else
+                        statuscolumn = 0
+                    End If
+                    cmd1.Parameters.AddWithValue("@Status", statuscolumn)
+                    Con.Open()
+                    cmd1.ExecuteNonQuery()
+                    Con.Close()
+                Next
+                MsgBox("Attendance recorded sucessfully")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+        End Try
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ReportBtn.Click
@@ -90,7 +95,8 @@ Public Class Attendance
 
 
         Catch ex As Exception
-            MsgBox("Error: System not responding; TRY AGAIN")
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
         End Try
 
     End Sub

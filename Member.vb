@@ -27,7 +27,7 @@ Public Class Member
         Main.Show()
 
     End Sub
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         If DateOfBaptismDTP.Value = Nothing Or NameTxt.Text = "" Or PhoneTxt.Text = "" Or SexComboBox.SelectedItem = Nothing Or ResidenceComboBox.SelectedItem = Nothing Then
             MsgBox("Missing Information")
@@ -36,36 +36,43 @@ Public Class Member
             Dim picture As New MemoryStream()
             MemberPicture.Image.Save(picture, MemberPicture.Image.RawFormat)
 
-
-            Con.Open()
-            'DateOfBaptismDTP.Format = DateTimePickerFormat.Custom
-            'DateOfBirthDTP.Format = DateTimePickerFormat.Custom
-            'DateOfBaptismDTP.CustomFormat = "DD-MM-YYYY"
             Try
-                Dim Query As String
-                Query = "insert into MemberTbl (MemberDateOfBaptism, MemberName, MemberDateOfBirth, MemberPhone, MemberMaritalStatus,MemberOccupation, MemberResidence, MemberFatherName, MemberFatherHometown, MemberMotherName, MemberMotherHometown, MemberPicture, MemberSex) values (@DOBap, @Name, @DOB, @Phone, @Marital, @Occupation, @Residence, @FatherName, @FatherH, @MotherName, @MotherH, @Picture, @Sex)"
-                Dim cmd As SqlCommand
-                cmd = New SqlCommand(Query, Con)
-                cmd.Parameters.AddWithValue("@DOBap", DateOfBaptismDTP.Value.Date)
-                cmd.Parameters.AddWithValue("@Name", NameTxt.Text)
-                cmd.Parameters.AddWithValue("@DOB", DateOfBirthDTP.Value.Date)
-                cmd.Parameters.AddWithValue("@Phone", "233" + PhoneTxt.Text)
-                cmd.Parameters.AddWithValue("@Marital", MaritalComboBox.SelectedItem.ToString())
-                cmd.Parameters.AddWithValue("@Occupation", OccupationTxt.Text)
-                cmd.Parameters.AddWithValue("@Residence", ResidenceComboBox.SelectedItem.ToString())
-                cmd.Parameters.AddWithValue("@FatherName", FatherTxt.Text)
-                cmd.Parameters.AddWithValue("@FatherH", FatherHomeTxt.Text)
-                cmd.Parameters.AddWithValue("@MotherName", MotherTxt.Text)
-                cmd.Parameters.AddWithValue("@MotherH", MotherHomeTxt.Text)
-                cmd.Parameters.AddWithValue("@Picture", picture.ToArray())
-                cmd.Parameters.AddWithValue("@Sex", SexComboBox.SelectedItem.ToString())
-                cmd.ExecuteNonQuery()
-                MsgBox("Member added successfully")
-                clear()
-                Con.Close()
+                Con.Open()
+                'DateOfBaptismDTP.Format = DateTimePickerFormat.Custom
+                'DateOfBirthDTP.Format = DateTimePickerFormat.Custom
+                'DateOfBaptismDTP.CustomFormat = "DD-MM-YYYY"
+                Try
+                    Dim Query As String
+                    Query = "insert into MemberTbl (MemberDateOfBaptism, MemberName, MemberDateOfBirth, MemberPhone, MemberMaritalStatus,MemberOccupation, MemberResidence, MemberFatherName, MemberFatherHometown, MemberMotherName, MemberMotherHometown, MemberPicture, MemberSex) values (@DOBap, @Name, @DOB, @Phone, @Marital, @Occupation, @Residence, @FatherName, @FatherH, @MotherName, @MotherH, @Picture, @Sex)"
+                    Dim cmd As SqlCommand
+                    cmd = New SqlCommand(Query, Con)
+                    cmd.Parameters.AddWithValue("@DOBap", DateOfBaptismDTP.Value.Date)
+                    cmd.Parameters.AddWithValue("@Name", NameTxt.Text)
+                    cmd.Parameters.AddWithValue("@DOB", DateOfBirthDTP.Value.Date)
+                    cmd.Parameters.AddWithValue("@Phone", "233" + PhoneTxt.Text)
+                    cmd.Parameters.AddWithValue("@Marital", MaritalComboBox.SelectedItem.ToString())
+                    cmd.Parameters.AddWithValue("@Occupation", OccupationTxt.Text)
+                    cmd.Parameters.AddWithValue("@Residence", ResidenceComboBox.SelectedItem.ToString())
+                    cmd.Parameters.AddWithValue("@FatherName", FatherTxt.Text)
+                    cmd.Parameters.AddWithValue("@FatherH", FatherHomeTxt.Text)
+                    cmd.Parameters.AddWithValue("@MotherName", MotherTxt.Text)
+                    cmd.Parameters.AddWithValue("@MotherH", MotherHomeTxt.Text)
+                    cmd.Parameters.AddWithValue("@Picture", picture.ToArray())
+                    cmd.Parameters.AddWithValue("@Sex", SexComboBox.SelectedItem.ToString())
+                    cmd.ExecuteNonQuery()
+                    MsgBox("Member added successfully")
+                    clear()
+                    Con.Close()
+
+                Catch ex As Exception
+                    MsgBox("Record already exist in the database")
+                    Con.Close()
+                End Try
+
 
             Catch ex As Exception
-                MsgBox("Record already exist in the database")
+                MsgBox(ex.Message, vbInformation)
+                Con.Close()
             End Try
 
 
@@ -94,33 +101,38 @@ Public Class Member
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles UpdateBtn.Click
 
 
-        If DateOfBaptismDTP.Value = Nothing Or NameTxt.Text = "" Or PhoneTxt.Text = "" Or SexComboBox.SelectedItem = Nothing Or ResidenceComboBox.SelectedItem = Nothing Then
-            MsgBox("Missing Information")
-        Else
-            Dim picture As New MemoryStream()
-            MemberPicture.Image.Save(picture, MemberPicture.Image.RawFormat)
-            Con.Open()
-            Dim Query As String
-            Query = "Update MemberTbl SET MemberDateOfBaptism = @DOBap, MemberName = @Name, MemberDateOfBirth = @DOB, MemberMaritalStatus = @Marital, MemberOccupation = @Occupation, MemberResidence = @Residence, MemberFatherName = @FatherName, MemberFatherHometown = @FatherH, MemberMotherName = @MotherName, MemberMotherHometown = @MotherH, MemberPicture = @Picture, MemberSex = @Sex WHERE MemberPhone = @Phone"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(Query, Con)
-            cmd.Parameters.AddWithValue("@DOBap", DateOfBaptismDTP.Value.Date)
-            cmd.Parameters.AddWithValue("@Name", NameTxt.Text)
-            cmd.Parameters.AddWithValue("@DOB", DateOfBirthDTP.Value.Date)
-            cmd.Parameters.AddWithValue("@Phone", PhoneTxt.Text)
-            cmd.Parameters.AddWithValue("@Marital", MaritalComboBox.SelectedItem.ToString())
-            cmd.Parameters.AddWithValue("@Occupation", OccupationTxt.Text)
-            cmd.Parameters.AddWithValue("@Residence", ResidenceComboBox.SelectedItem.ToString())
-            cmd.Parameters.AddWithValue("@FatherName", FatherTxt.Text)
-            cmd.Parameters.AddWithValue("@FatherH", FatherHomeTxt.Text)
-            cmd.Parameters.AddWithValue("@MotherName", MotherTxt.Text)
-            cmd.Parameters.AddWithValue("@MotherH", MotherHomeTxt.Text)
-            cmd.Parameters.AddWithValue("@Picture", picture.ToArray())
-            cmd.Parameters.AddWithValue("@Sex", SexComboBox.SelectedItem.ToString())
-            cmd.ExecuteNonQuery()
-            MsgBox("Member Information Updated Successfully")
+        Try
+            If DateOfBaptismDTP.Value = Nothing Or NameTxt.Text = "" Or PhoneTxt.Text = "" Or SexComboBox.SelectedItem = Nothing Or ResidenceComboBox.SelectedItem = Nothing Then
+                MsgBox("Missing Information")
+            Else
+                Dim picture As New MemoryStream()
+                MemberPicture.Image.Save(picture, MemberPicture.Image.RawFormat)
+                Con.Open()
+                Dim Query As String
+                Query = "Update MemberTbl SET MemberDateOfBaptism = @DOBap, MemberName = @Name, MemberDateOfBirth = @DOB, MemberMaritalStatus = @Marital, MemberOccupation = @Occupation, MemberResidence = @Residence, MemberFatherName = @FatherName, MemberFatherHometown = @FatherH, MemberMotherName = @MotherName, MemberMotherHometown = @MotherH, MemberPicture = @Picture, MemberSex = @Sex WHERE MemberPhone = @Phone"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(Query, Con)
+                cmd.Parameters.AddWithValue("@DOBap", DateOfBaptismDTP.Value.Date)
+                cmd.Parameters.AddWithValue("@Name", NameTxt.Text)
+                cmd.Parameters.AddWithValue("@DOB", DateOfBirthDTP.Value.Date)
+                cmd.Parameters.AddWithValue("@Phone", PhoneTxt.Text)
+                cmd.Parameters.AddWithValue("@Marital", MaritalComboBox.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@Occupation", OccupationTxt.Text)
+                cmd.Parameters.AddWithValue("@Residence", ResidenceComboBox.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@FatherName", FatherTxt.Text)
+                cmd.Parameters.AddWithValue("@FatherH", FatherHomeTxt.Text)
+                cmd.Parameters.AddWithValue("@MotherName", MotherTxt.Text)
+                cmd.Parameters.AddWithValue("@MotherH", MotherHomeTxt.Text)
+                cmd.Parameters.AddWithValue("@Picture", picture.ToArray())
+                cmd.Parameters.AddWithValue("@Sex", SexComboBox.SelectedItem.ToString())
+                cmd.ExecuteNonQuery()
+                MsgBox("Member Information Updated Successfully")
+                Con.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-        End If
+        End Try
     End Sub
 
     Private Sub DateOfBaptismDTP_ValueChanged(sender As Object, e As EventArgs) Handles DateOfBaptismDTP.ValueChanged
@@ -150,7 +162,7 @@ Public Class Member
         Cong.Show()
     End Sub
 
-    Private Sub PhoneTxt_TextChanged(sender As Object, e As EventArgs) Handles PhoneTxt.TextChanged
+    Private Sub PhoneTxt_TextChanged(sender As Object, e As EventArgs) Handles PhoneTxt.TextChanged, PhoneTxt.KeyPress
 
     End Sub
 

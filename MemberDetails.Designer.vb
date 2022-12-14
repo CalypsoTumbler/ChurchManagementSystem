@@ -75,9 +75,10 @@ Partial Class MemberDetails
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(191, 44)
+        Me.Label1.Location = New System.Drawing.Point(255, 54)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(401, 33)
+        Me.Label1.Size = New System.Drawing.Size(504, 41)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "CHURCH OF CHRIST, KASOA"
         '
@@ -85,9 +86,10 @@ Partial Class MemberDetails
         '
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(-6, 26)
+        Me.PictureBox1.Location = New System.Drawing.Point(-8, 32)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(167, 96)
+        Me.PictureBox1.Size = New System.Drawing.Size(223, 118)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
@@ -98,9 +100,10 @@ Partial Class MemberDetails
         Me.Label2.BackColor = System.Drawing.SystemColors.Highlight
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label2.Location = New System.Drawing.Point(191, 89)
+        Me.Label2.Location = New System.Drawing.Point(255, 110)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(433, 33)
+        Me.Label2.Size = New System.Drawing.Size(543, 41)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "ACCRA-ROAD CONGREGATION"
         '
@@ -141,27 +144,30 @@ Partial Class MemberDetails
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Location = New System.Drawing.Point(4, 128)
+        Me.Panel1.Location = New System.Drawing.Point(5, 158)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(660, 765)
+        Me.Panel1.Size = New System.Drawing.Size(880, 725)
         Me.Panel1.TabIndex = 10
         '
         'PictureBox4
         '
         Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(80, 854)
+        Me.PictureBox4.Location = New System.Drawing.Point(107, 1051)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(52, 50)
+        Me.PictureBox4.Size = New System.Drawing.Size(69, 62)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox4.TabIndex = 58
         Me.PictureBox4.TabStop = False
         '
         'Panel2
         '
-        Me.Panel2.Location = New System.Drawing.Point(0, 905)
+        Me.Panel2.Location = New System.Drawing.Point(0, 1114)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(660, 19)
+        Me.Panel2.Size = New System.Drawing.Size(880, 23)
         Me.Panel2.TabIndex = 57
         '
         'Label14
@@ -170,9 +176,10 @@ Partial Class MemberDetails
         Me.Label14.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label14.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label14.Location = New System.Drawing.Point(62, 14)
+        Me.Label14.Location = New System.Drawing.Point(83, 17)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(88, 19)
+        Me.Label14.Size = New System.Drawing.Size(111, 24)
         Me.Label14.TabIndex = 56
         Me.Label14.Text = "Search by"
         '
@@ -183,9 +190,10 @@ Partial Class MemberDetails
         Me.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.DeleteBtn.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DeleteBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.DeleteBtn.Location = New System.Drawing.Point(382, 871)
+        Me.DeleteBtn.Location = New System.Drawing.Point(509, 1072)
+        Me.DeleteBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.DeleteBtn.Name = "DeleteBtn"
-        Me.DeleteBtn.Size = New System.Drawing.Size(88, 33)
+        Me.DeleteBtn.Size = New System.Drawing.Size(117, 41)
         Me.DeleteBtn.TabIndex = 55
         Me.DeleteBtn.Text = "Delete"
         Me.DeleteBtn.UseVisualStyleBackColor = False
@@ -197,9 +205,10 @@ Partial Class MemberDetails
         Me.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.EditBtn.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EditBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.EditBtn.Location = New System.Drawing.Point(241, 871)
+        Me.EditBtn.Location = New System.Drawing.Point(321, 1072)
+        Me.EditBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.EditBtn.Name = "EditBtn"
-        Me.EditBtn.Size = New System.Drawing.Size(88, 33)
+        Me.EditBtn.Size = New System.Drawing.Size(117, 41)
         Me.EditBtn.TabIndex = 54
         Me.EditBtn.Text = "Edit"
         Me.EditBtn.UseVisualStyleBackColor = False
@@ -211,9 +220,10 @@ Partial Class MemberDetails
         Me.SearchComboBox.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.SearchComboBox.FormattingEnabled = True
         Me.SearchComboBox.Items.AddRange(New Object() {"Phone number", "Name"})
-        Me.SearchComboBox.Location = New System.Drawing.Point(61, 40)
+        Me.SearchComboBox.Location = New System.Drawing.Point(81, 49)
+        Me.SearchComboBox.Margin = New System.Windows.Forms.Padding(4)
         Me.SearchComboBox.Name = "SearchComboBox"
-        Me.SearchComboBox.Size = New System.Drawing.Size(253, 27)
+        Me.SearchComboBox.Size = New System.Drawing.Size(336, 32)
         Me.SearchComboBox.TabIndex = 53
         '
         'SexLbl
@@ -221,9 +231,10 @@ Partial Class MemberDetails
         Me.SexLbl.AutoSize = True
         Me.SexLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SexLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.SexLbl.Location = New System.Drawing.Point(59, 382)
+        Me.SexLbl.Location = New System.Drawing.Point(79, 470)
+        Me.SexLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.SexLbl.Name = "SexLbl"
-        Me.SexLbl.Size = New System.Drawing.Size(0, 19)
+        Me.SexLbl.Size = New System.Drawing.Size(0, 24)
         Me.SexLbl.TabIndex = 52
         '
         'Label15
@@ -232,9 +243,10 @@ Partial Class MemberDetails
         Me.Label15.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label15.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label15.Location = New System.Drawing.Point(59, 363)
+        Me.Label15.Location = New System.Drawing.Point(79, 447)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(39, 19)
+        Me.Label15.Size = New System.Drawing.Size(47, 24)
         Me.Label15.TabIndex = 51
         Me.Label15.Text = "Sex"
         '
@@ -245,9 +257,10 @@ Partial Class MemberDetails
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button4.Location = New System.Drawing.Point(346, 73)
+        Me.Button4.Location = New System.Drawing.Point(461, 90)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(74, 33)
+        Me.Button4.Size = New System.Drawing.Size(99, 41)
         Me.Button4.TabIndex = 50
         Me.Button4.Text = "Search"
         Me.Button4.UseVisualStyleBackColor = False
@@ -257,9 +270,10 @@ Partial Class MemberDetails
         Me.SearchTxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.SearchTxt.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchTxt.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.SearchTxt.Location = New System.Drawing.Point(61, 73)
+        Me.SearchTxt.Location = New System.Drawing.Point(81, 90)
+        Me.SearchTxt.Margin = New System.Windows.Forms.Padding(4)
         Me.SearchTxt.Name = "SearchTxt"
-        Me.SearchTxt.Size = New System.Drawing.Size(253, 27)
+        Me.SearchTxt.Size = New System.Drawing.Size(336, 32)
         Me.SearchTxt.TabIndex = 49
         '
         'MotherhLbl
@@ -267,9 +281,10 @@ Partial Class MemberDetails
         Me.MotherhLbl.AutoSize = True
         Me.MotherhLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MotherhLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.MotherhLbl.Location = New System.Drawing.Point(59, 830)
+        Me.MotherhLbl.Location = New System.Drawing.Point(79, 1022)
+        Me.MotherhLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.MotherhLbl.Name = "MotherhLbl"
-        Me.MotherhLbl.Size = New System.Drawing.Size(0, 19)
+        Me.MotherhLbl.Size = New System.Drawing.Size(0, 24)
         Me.MotherhLbl.TabIndex = 48
         '
         'MotherLbl
@@ -277,9 +292,10 @@ Partial Class MemberDetails
         Me.MotherLbl.AutoSize = True
         Me.MotherLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MotherLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.MotherLbl.Location = New System.Drawing.Point(59, 742)
+        Me.MotherLbl.Location = New System.Drawing.Point(79, 913)
+        Me.MotherLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.MotherLbl.Name = "MotherLbl"
-        Me.MotherLbl.Size = New System.Drawing.Size(0, 19)
+        Me.MotherLbl.Size = New System.Drawing.Size(0, 24)
         Me.MotherLbl.TabIndex = 47
         '
         'FatherhLbl
@@ -287,9 +303,10 @@ Partial Class MemberDetails
         Me.FatherhLbl.AutoSize = True
         Me.FatherhLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FatherhLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.FatherhLbl.Location = New System.Drawing.Point(57, 681)
+        Me.FatherhLbl.Location = New System.Drawing.Point(76, 838)
+        Me.FatherhLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.FatherhLbl.Name = "FatherhLbl"
-        Me.FatherhLbl.Size = New System.Drawing.Size(0, 19)
+        Me.FatherhLbl.Size = New System.Drawing.Size(0, 24)
         Me.FatherhLbl.TabIndex = 46
         '
         'FatherLbl
@@ -297,9 +314,10 @@ Partial Class MemberDetails
         Me.FatherLbl.AutoSize = True
         Me.FatherLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FatherLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.FatherLbl.Location = New System.Drawing.Point(59, 619)
+        Me.FatherLbl.Location = New System.Drawing.Point(79, 762)
+        Me.FatherLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.FatherLbl.Name = "FatherLbl"
-        Me.FatherLbl.Size = New System.Drawing.Size(0, 19)
+        Me.FatherLbl.Size = New System.Drawing.Size(0, 24)
         Me.FatherLbl.TabIndex = 45
         '
         'ResidenceLbl
@@ -307,9 +325,10 @@ Partial Class MemberDetails
         Me.ResidenceLbl.AutoSize = True
         Me.ResidenceLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ResidenceLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.ResidenceLbl.Location = New System.Drawing.Point(59, 558)
+        Me.ResidenceLbl.Location = New System.Drawing.Point(79, 687)
+        Me.ResidenceLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.ResidenceLbl.Name = "ResidenceLbl"
-        Me.ResidenceLbl.Size = New System.Drawing.Size(0, 19)
+        Me.ResidenceLbl.Size = New System.Drawing.Size(0, 24)
         Me.ResidenceLbl.TabIndex = 44
         '
         'OccupationLbl
@@ -317,9 +336,10 @@ Partial Class MemberDetails
         Me.OccupationLbl.AutoSize = True
         Me.OccupationLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OccupationLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.OccupationLbl.Location = New System.Drawing.Point(59, 498)
+        Me.OccupationLbl.Location = New System.Drawing.Point(79, 613)
+        Me.OccupationLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.OccupationLbl.Name = "OccupationLbl"
-        Me.OccupationLbl.Size = New System.Drawing.Size(0, 19)
+        Me.OccupationLbl.Size = New System.Drawing.Size(0, 24)
         Me.OccupationLbl.TabIndex = 43
         '
         'MaritalLbl
@@ -327,9 +347,10 @@ Partial Class MemberDetails
         Me.MaritalLbl.AutoSize = True
         Me.MaritalLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MaritalLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.MaritalLbl.Location = New System.Drawing.Point(59, 442)
+        Me.MaritalLbl.Location = New System.Drawing.Point(79, 544)
+        Me.MaritalLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.MaritalLbl.Name = "MaritalLbl"
-        Me.MaritalLbl.Size = New System.Drawing.Size(0, 19)
+        Me.MaritalLbl.Size = New System.Drawing.Size(0, 24)
         Me.MaritalLbl.TabIndex = 42
         '
         'PhoneLbl
@@ -337,9 +358,10 @@ Partial Class MemberDetails
         Me.PhoneLbl.AutoSize = True
         Me.PhoneLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PhoneLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.PhoneLbl.Location = New System.Drawing.Point(61, 324)
+        Me.PhoneLbl.Location = New System.Drawing.Point(81, 399)
+        Me.PhoneLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.PhoneLbl.Name = "PhoneLbl"
-        Me.PhoneLbl.Size = New System.Drawing.Size(0, 19)
+        Me.PhoneLbl.Size = New System.Drawing.Size(0, 24)
         Me.PhoneLbl.TabIndex = 41
         '
         'DOBLbl
@@ -347,9 +369,10 @@ Partial Class MemberDetails
         Me.DOBLbl.AutoSize = True
         Me.DOBLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DOBLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.DOBLbl.Location = New System.Drawing.Point(61, 261)
+        Me.DOBLbl.Location = New System.Drawing.Point(81, 321)
+        Me.DOBLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DOBLbl.Name = "DOBLbl"
-        Me.DOBLbl.Size = New System.Drawing.Size(0, 19)
+        Me.DOBLbl.Size = New System.Drawing.Size(0, 24)
         Me.DOBLbl.TabIndex = 40
         '
         'NameLbl
@@ -357,9 +380,10 @@ Partial Class MemberDetails
         Me.NameLbl.AutoSize = True
         Me.NameLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NameLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.NameLbl.Location = New System.Drawing.Point(59, 203)
+        Me.NameLbl.Location = New System.Drawing.Point(79, 250)
+        Me.NameLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.NameLbl.Name = "NameLbl"
-        Me.NameLbl.Size = New System.Drawing.Size(0, 19)
+        Me.NameLbl.Size = New System.Drawing.Size(0, 24)
         Me.NameLbl.TabIndex = 39
         '
         'DOBapLbl
@@ -367,9 +391,10 @@ Partial Class MemberDetails
         Me.DOBapLbl.AutoSize = True
         Me.DOBapLbl.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DOBapLbl.ForeColor = System.Drawing.Color.Firebrick
-        Me.DOBapLbl.Location = New System.Drawing.Point(59, 144)
+        Me.DOBapLbl.Location = New System.Drawing.Point(79, 177)
+        Me.DOBapLbl.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DOBapLbl.Name = "DOBapLbl"
-        Me.DOBapLbl.Size = New System.Drawing.Size(0, 19)
+        Me.DOBapLbl.Size = New System.Drawing.Size(0, 24)
         Me.DOBapLbl.TabIndex = 38
         '
         'ProfilePictureBox
@@ -377,9 +402,10 @@ Partial Class MemberDetails
         Me.ProfilePictureBox.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ProfilePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.ProfilePictureBox.Image = CType(resources.GetObject("ProfilePictureBox.Image"), System.Drawing.Image)
-        Me.ProfilePictureBox.Location = New System.Drawing.Point(346, 125)
+        Me.ProfilePictureBox.Location = New System.Drawing.Point(461, 154)
+        Me.ProfilePictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.ProfilePictureBox.Name = "ProfilePictureBox"
-        Me.ProfilePictureBox.Size = New System.Drawing.Size(185, 155)
+        Me.ProfilePictureBox.Size = New System.Drawing.Size(245, 190)
         Me.ProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.ProfilePictureBox.TabIndex = 37
         Me.ProfilePictureBox.TabStop = False
@@ -390,9 +416,10 @@ Partial Class MemberDetails
         Me.Label13.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label13.Location = New System.Drawing.Point(59, 787)
+        Me.Label13.Location = New System.Drawing.Point(79, 969)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(181, 19)
+        Me.Label13.Size = New System.Drawing.Size(223, 24)
         Me.Label13.TabIndex = 36
         Me.Label13.Text = "Hometown of Mother"
         '
@@ -402,9 +429,10 @@ Partial Class MemberDetails
         Me.Label12.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label12.Location = New System.Drawing.Point(57, 723)
+        Me.Label12.Location = New System.Drawing.Point(76, 890)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(140, 19)
+        Me.Label12.Size = New System.Drawing.Size(172, 24)
         Me.Label12.TabIndex = 35
         Me.Label12.Text = "Name of Mother"
         '
@@ -414,9 +442,10 @@ Partial Class MemberDetails
         Me.Label11.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label11.Location = New System.Drawing.Point(57, 662)
+        Me.Label11.Location = New System.Drawing.Point(76, 815)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(176, 19)
+        Me.Label11.Size = New System.Drawing.Size(217, 24)
         Me.Label11.TabIndex = 34
         Me.Label11.Text = "Hometown of Father"
         '
@@ -426,9 +455,10 @@ Partial Class MemberDetails
         Me.Label10.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label10.Location = New System.Drawing.Point(59, 600)
+        Me.Label10.Location = New System.Drawing.Point(79, 738)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(135, 19)
+        Me.Label10.Size = New System.Drawing.Size(166, 24)
         Me.Label10.TabIndex = 33
         Me.Label10.Text = "Name of Father"
         '
@@ -438,9 +468,10 @@ Partial Class MemberDetails
         Me.Label9.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label9.Location = New System.Drawing.Point(59, 423)
+        Me.Label9.Location = New System.Drawing.Point(79, 521)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(124, 19)
+        Me.Label9.Size = New System.Drawing.Size(151, 24)
         Me.Label9.TabIndex = 32
         Me.Label9.Text = "Marital Status"
         '
@@ -450,9 +481,10 @@ Partial Class MemberDetails
         Me.Label8.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label8.Location = New System.Drawing.Point(59, 305)
+        Me.Label8.Location = New System.Drawing.Point(79, 375)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(129, 19)
+        Me.Label8.Size = New System.Drawing.Size(160, 24)
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "Phone Number"
         '
@@ -462,9 +494,10 @@ Partial Class MemberDetails
         Me.Label7.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label7.Location = New System.Drawing.Point(59, 479)
+        Me.Label7.Location = New System.Drawing.Point(79, 590)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(99, 19)
+        Me.Label7.Size = New System.Drawing.Size(124, 24)
         Me.Label7.TabIndex = 30
         Me.Label7.Text = "Occupation"
         '
@@ -474,9 +507,10 @@ Partial Class MemberDetails
         Me.Label6.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label6.Location = New System.Drawing.Point(59, 539)
+        Me.Label6.Location = New System.Drawing.Point(79, 663)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(163, 19)
+        Me.Label6.Size = New System.Drawing.Size(201, 24)
         Me.Label6.TabIndex = 29
         Me.Label6.Text = "Town of Residence"
         '
@@ -486,9 +520,10 @@ Partial Class MemberDetails
         Me.Label5.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label5.Location = New System.Drawing.Point(59, 242)
+        Me.Label5.Location = New System.Drawing.Point(79, 298)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(114, 19)
+        Me.Label5.Size = New System.Drawing.Size(139, 24)
         Me.Label5.TabIndex = 28
         Me.Label5.Text = "Date of Birth"
         '
@@ -498,9 +533,10 @@ Partial Class MemberDetails
         Me.Label4.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label4.Location = New System.Drawing.Point(59, 184)
+        Me.Label4.Location = New System.Drawing.Point(79, 226)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(56, 19)
+        Me.Label4.Size = New System.Drawing.Size(68, 24)
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Name"
         '
@@ -510,36 +546,39 @@ Partial Class MemberDetails
         Me.Label3.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label3.Location = New System.Drawing.Point(59, 125)
+        Me.Label3.Location = New System.Drawing.Point(79, 154)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(140, 19)
+        Me.Label3.Size = New System.Drawing.Size(171, 24)
         Me.Label3.TabIndex = 26
         Me.Label3.Text = "Date of Baptism"
         '
         'PictureBox7
         '
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(581, 3)
+        Me.PictureBox7.Location = New System.Drawing.Point(775, 4)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox7.Size = New System.Drawing.Size(53, 49)
         Me.PictureBox7.TabIndex = 12
         Me.PictureBox7.TabStop = False
         '
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(625, 4)
+        Me.PictureBox6.Location = New System.Drawing.Point(833, 5)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(38, 41)
+        Me.PictureBox6.Size = New System.Drawing.Size(51, 50)
         Me.PictureBox6.TabIndex = 11
         Me.PictureBox6.TabStop = False
         '
         'MemberDetails
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
-        Me.ClientSize = New System.Drawing.Size(668, 933)
+        Me.ClientSize = New System.Drawing.Size(891, 931)
         Me.Controls.Add(Me.PictureBox7)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.Panel1)
@@ -547,6 +586,7 @@ Partial Class MemberDetails
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "MemberDetails"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MemberDetails"

@@ -5,20 +5,25 @@ Public Class Users
         Login.Show()
     End Sub
 
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source = SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
 
     Private Sub DisplayUsers()
-        Con.Open()
-        Dim Sql = "select * from UserTbl"
-        Dim adapter As SqlDataAdapter
-        adapter = New SqlDataAdapter(Sql, Con)
-        Dim builder As SqlCommandBuilder
-        builder = New SqlCommandBuilder(adapter)
-        Dim ds As DataSet
-        ds = New DataSet
-        adapter.Fill(ds)
-        UsersDGV.DataSource = ds.Tables(0)
-        Con.Close()
+        Try
+            Con.Open()
+            Dim Sql = "select * from UserTbl"
+            Dim adapter As SqlDataAdapter
+            adapter = New SqlDataAdapter(Sql, Con)
+            Dim builder As SqlCommandBuilder
+            builder = New SqlCommandBuilder(adapter)
+            Dim ds As DataSet
+            ds = New DataSet
+            adapter.Fill(ds)
+            UsersDGV.DataSource = ds.Tables(0)
+            Con.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+        End Try
     End Sub
 
     Private Sub Clear()
@@ -45,17 +50,22 @@ Public Class Users
             Next
 
             PassTxt.Text = password
+            Try
 
-            Con.Open()
-            Dim Query As String
-            Query = "insert into UserTbl values('" & NameTxt.Text & "', '" & PhoneTxt.Text & "', '" & password & "' )"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(Query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("Item added successfully")
-            Con.Close()
-            DisplayUsers()
-            Clear()
+                Con.Open()
+                Dim Query As String
+                Query = "insert into UserTbl values('" & NameTxt.Text & "', '" & PhoneTxt.Text & "', '" & password & "' )"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(Query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("Item added successfully")
+                Con.Close()
+                DisplayUsers()
+                Clear()
+            Catch ex As Exception
+                MsgBox(ex.Message, vbInformation)
+                Con.Close()
+            End Try
         End If
 
     End Sub
@@ -87,19 +97,24 @@ Public Class Users
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Key = 0 Then
-            MsgBox("Missing Information")
-        Else
-            Con.Open()
-            Dim query = "delete from UserTbl where UserID = " & Key & ""
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("User Deleted")
+        Try
+            If Key = 0 Then
+                MsgBox("Missing Information")
+            Else
+                Con.Open()
+                Dim query = "delete from UserTbl where UserID = " & Key & ""
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("User Deleted")
+                Con.Close()
+                DisplayUsers()
+                Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-            DisplayUsers()
-            Clear()
-        End If
+        End Try
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles EditBtn.Click
@@ -120,15 +135,20 @@ Public Class Users
 
             PassTxt.Text = password
 
-            Con.Open()
-            Dim query = "Update UserTbl set UserName = '" & NameTxt.Text & "', UserPhone = '" & PhoneTxt.Text & "', UserPassword = '" & PassTxt.Text & "' where UserId = " & Key & ""
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("User Information Edited Successfully")
-            Con.Close()
-            DisplayUsers()
-            Clear()
+            Try
+                Con.Open()
+                Dim query = "Update UserTbl set UserName = '" & NameTxt.Text & "', UserPhone = '" & PhoneTxt.Text & "', UserPassword = '" & PassTxt.Text & "' where UserId = " & Key & ""
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("User Information Edited Successfully")
+                Con.Close()
+                DisplayUsers()
+                Clear()
+            Catch ex As Exception
+                MsgBox(ex.Message, vbInformation)
+                Con.Close()
+            End Try
         End If
 
 

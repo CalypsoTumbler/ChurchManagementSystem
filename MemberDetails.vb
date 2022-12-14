@@ -24,105 +24,115 @@ Public Class MemberDetails
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
 
     Private Sub SearchByPhone()
-        Con.Open()
-        Dim Query2 = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
-        Dim cmd2 = New SqlCommand(Query2, Con)
-        Dim sqa2 = New SqlDataAdapter(cmd2)
-        Dim ds = New DataSet()
-        sqa2.Fill(ds, "sql temp table")
-        sqa2.Dispose()
+        Try
+            Con.Open()
+            Dim Query2 = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
+            Dim cmd2 = New SqlCommand(Query2, Con)
+            Dim sqa2 = New SqlDataAdapter(cmd2)
+            Dim ds = New DataSet()
+            sqa2.Fill(ds, "sql temp table")
+            sqa2.Dispose()
 
-        Dim a As Integer
-        a = ds.Tables(0).Rows.Count
+            Dim a As Integer
+            a = ds.Tables(0).Rows.Count
 
-        If a = 0 Then
-            MsgBox("Member not found")
+            If a = 0 Then
+                MsgBox("Member not found")
+                Con.Close()
+            Else
+
+                Dim Query = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(Query, Con)
+                Dim dt As DataTable
+                dt = New DataTable
+                Dim sqa As SqlDataAdapter
+                sqa = New SqlDataAdapter(cmd)
+                sqa.Fill(dt)
+
+
+                For Each dr As DataRow In dt.Rows
+                    DOBapLbl.Text = dr(1).ToString()
+                    NameLbl.Text = dr(2).ToString()
+                    DOBLbl.Text = dr(3).ToString()
+                    PhoneLbl.Text = dr(4).ToString()
+                    MaritalLbl.Text = dr(5).ToString()
+                    OccupationLbl.Text = dr(6).ToString()
+                    ResidenceLbl.Text = dr(7).ToString()
+                    FatherLbl.Text = dr(8).ToString()
+                    FatherhLbl.Text = dr(9).ToString()
+                    MotherLbl.Text = dr(10).ToString()
+                    MotherhLbl.Text = dr(11).ToString()
+                    Dim img() As Byte
+                    img = dt.Rows(0)(12)
+                    Dim ms As New MemoryStream(img)
+                    ProfilePictureBox.Image = Image.FromStream(ms)
+                    SexLbl.Text = dr(13).ToString()
+                Next
+                Con.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-        Else
-
-            Dim Query = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(Query, Con)
-            Dim dt As DataTable
-            dt = New DataTable
-            Dim sqa As SqlDataAdapter
-            sqa = New SqlDataAdapter(cmd)
-            sqa.Fill(dt)
-
-
-            For Each dr As DataRow In dt.Rows
-                DOBapLbl.Text = dr(1).ToString()
-                NameLbl.Text = dr(2).ToString()
-                DOBLbl.Text = dr(3).ToString()
-                PhoneLbl.Text = dr(4).ToString()
-                MaritalLbl.Text = dr(5).ToString()
-                OccupationLbl.Text = dr(6).ToString()
-                ResidenceLbl.Text = dr(7).ToString()
-                FatherLbl.Text = dr(8).ToString()
-                FatherhLbl.Text = dr(9).ToString()
-                MotherLbl.Text = dr(10).ToString()
-                MotherhLbl.Text = dr(11).ToString()
-                Dim img() As Byte
-                img = dt.Rows(0)(12)
-                Dim ms As New MemoryStream(img)
-                ProfilePictureBox.Image = Image.FromStream(ms)
-                SexLbl.Text = dr(13).ToString()
-            Next
-            Con.Close()
-        End If
+        End Try
 
     End Sub
 
     Private Sub SearchByName()
-        Con.Open()
-        Dim Query2 = "select * from MemberTbl where MemberName ='" & SearchTxt.Text & "'"
-        Dim cmd2 = New SqlCommand(Query2, Con)
-        Dim sqa2 = New SqlDataAdapter(cmd2)
-        Dim ds = New DataSet()
-        sqa2.Fill(ds, "sql temp table")
-        sqa2.Dispose()
+        Try
+            Con.Open()
+            Dim Query2 = "select * from MemberTbl where MemberName ='" & SearchTxt.Text & "'"
+            Dim cmd2 = New SqlCommand(Query2, Con)
+            Dim sqa2 = New SqlDataAdapter(cmd2)
+            Dim ds = New DataSet()
+            sqa2.Fill(ds, "sql temp table")
+            sqa2.Dispose()
 
-        Dim a As Integer
-        a = ds.Tables(0).Rows.Count
+            Dim a As Integer
+            a = ds.Tables(0).Rows.Count
 
-        If a = 0 Then
-            MsgBox("Member not found")
+            If a = 0 Then
+                MsgBox("Member not found")
+                Con.Close()
+            Else
+
+                Dim Query = "select * from MemberTbl where MemberName = '" & SearchTxt.Text & "'"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(Query, Con)
+                Dim dt As DataTable
+                dt = New DataTable
+                Dim sqa As SqlDataAdapter
+                sqa = New SqlDataAdapter(cmd)
+                sqa.Fill(dt)
+
+
+                For Each dr As DataRow In dt.Rows
+                    DOBapLbl.Text = dr(1).ToString()
+                    NameLbl.Text = dr(2).ToString()
+                    DOBLbl.Text = dr(3).ToString()
+                    PhoneLbl.Text = dr(4).ToString()
+                    MaritalLbl.Text = dr(5).ToString()
+                    OccupationLbl.Text = dr(6).ToString()
+                    ResidenceLbl.Text = dr(7).ToString()
+                    FatherLbl.Text = dr(8).ToString()
+                    FatherhLbl.Text = dr(9).ToString()
+                    MotherLbl.Text = dr(10).ToString()
+                    MotherhLbl.Text = dr(11).ToString()
+                    Dim img() As Byte
+                    img = dt.Rows(0)(12)
+                    Dim ms As New MemoryStream(img)
+                    ProfilePictureBox.Image = Image.FromStream(ms)
+                    SexLbl.Text = dr(13).ToString()
+                Next
+                Con.Close()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-        Else
-
-            Dim Query = "select * from MemberTbl where MemberName = '" & SearchTxt.Text & "'"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(Query, Con)
-            Dim dt As DataTable
-            dt = New DataTable
-            Dim sqa As SqlDataAdapter
-            sqa = New SqlDataAdapter(cmd)
-            sqa.Fill(dt)
-
-
-            For Each dr As DataRow In dt.Rows
-                DOBapLbl.Text = dr(1).ToString()
-                NameLbl.Text = dr(2).ToString()
-                DOBLbl.Text = dr(3).ToString()
-                PhoneLbl.Text = dr(4).ToString()
-                MaritalLbl.Text = dr(5).ToString()
-                OccupationLbl.Text = dr(6).ToString()
-                ResidenceLbl.Text = dr(7).ToString()
-                FatherLbl.Text = dr(8).ToString()
-                FatherhLbl.Text = dr(9).ToString()
-                MotherLbl.Text = dr(10).ToString()
-                MotherhLbl.Text = dr(11).ToString()
-                Dim img() As Byte
-                img = dt.Rows(0)(12)
-                Dim ms As New MemoryStream(img)
-                ProfilePictureBox.Image = Image.FromStream(ms)
-                SexLbl.Text = dr(13).ToString()
-            Next
-            Con.Close()
-        End If
+        End Try
 
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -142,85 +152,95 @@ Public Class MemberDetails
     End Sub
 
     Private Sub EditByName()
-        Con.Open()
-        Dim Query = "select * from MemberTbl where MemberName = '" & SearchTxt.Text & "'"
-        Dim cmd As SqlCommand
-        cmd = New SqlCommand(Query, Con)
-        Dim dt As DataTable
-        dt = New DataTable
-        Dim sqa As SqlDataAdapter
-        sqa = New SqlDataAdapter(cmd)
-        sqa.Fill(dt)
+        Try
+            Con.Open()
+            Dim Query = "select * from MemberTbl where MemberName = '" & SearchTxt.Text & "'"
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand(Query, Con)
+            Dim dt As DataTable
+            dt = New DataTable
+            Dim sqa As SqlDataAdapter
+            sqa = New SqlDataAdapter(cmd)
+            sqa.Fill(dt)
 
-        Dim obj As New Member()
+            Dim obj As New Member()
 
-        'Insert DateOfBaptismDTP.Value etc as Global variables 
-        For Each dr As DataRow In dt.Rows
-            obj.DateOfBaptismDTP.Value = dr(1).ToString()
-            obj.NameTxt.Text = dr(2).ToString()
-            obj.DateOfBirthDTP.Text = dr(3).ToString()
-            obj.PhoneTxt.Text = dr(4).ToString()
-            obj.MaritalComboBox.SelectedItem = dr(5).ToString()
-            obj.OccupationTxt.Text = dr(6).ToString()
-            obj.ResidenceComboBox.SelectedItem = dr(7).ToString()
-            obj.FatherTxt.Text = dr(8).ToString()
-            obj.FatherHomeTxt.Text = dr(9).ToString()
-            obj.MotherTxt.Text = dr(10).ToString()
-            obj.MotherHomeTxt.Text = dr(11).ToString()
-            Dim img() As Byte
-            img = dt.Rows(0)(12)
-            Dim ms As New MemoryStream(img)
-            obj.MemberPicture.Image = Image.FromStream(ms)
-            obj.SexComboBox.SelectedItem = dr(13).ToString()
-        Next
-        Con.Close()
-        clear()
-        Me.Hide()
+            'Insert DateOfBaptismDTP.Value etc as Global variables 
+            For Each dr As DataRow In dt.Rows
+                obj.DateOfBaptismDTP.Value = dr(1).ToString()
+                obj.NameTxt.Text = dr(2).ToString()
+                obj.DateOfBirthDTP.Text = dr(3).ToString()
+                obj.PhoneTxt.Text = dr(4).ToString()
+                obj.MaritalComboBox.SelectedItem = dr(5).ToString()
+                obj.OccupationTxt.Text = dr(6).ToString()
+                obj.ResidenceComboBox.SelectedItem = dr(7).ToString()
+                obj.FatherTxt.Text = dr(8).ToString()
+                obj.FatherHomeTxt.Text = dr(9).ToString()
+                obj.MotherTxt.Text = dr(10).ToString()
+                obj.MotherHomeTxt.Text = dr(11).ToString()
+                Dim img() As Byte
+                img = dt.Rows(0)(12)
+                Dim ms As New MemoryStream(img)
+                obj.MemberPicture.Image = Image.FromStream(ms)
+                obj.SexComboBox.SelectedItem = dr(13).ToString()
+            Next
+            Con.Close()
+            clear()
+            Me.Hide()
 
-        obj.Show()
-        obj.SaveBtn.Hide()
-        obj.UpdateBtn.Show()
+            obj.Show()
+            obj.SaveBtn.Hide()
+            obj.UpdateBtn.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+        End Try
     End Sub
 
     Private Sub EditByPhone()
-        Con.Open()
-        Dim Query = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
-        Dim cmd As SqlCommand
-        cmd = New SqlCommand(Query, Con)
-        Dim dt As DataTable
-        dt = New DataTable
-        Dim sqa As SqlDataAdapter
-        sqa = New SqlDataAdapter(cmd)
-        sqa.Fill(dt)
+        Try
+            Con.Open()
+            Dim Query = "select * from MemberTbl where MemberPhone = '" & SearchTxt.Text & "'"
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand(Query, Con)
+            Dim dt As DataTable
+            dt = New DataTable
+            Dim sqa As SqlDataAdapter
+            sqa = New SqlDataAdapter(cmd)
+            sqa.Fill(dt)
 
-        Dim obj As New Member()
+            Dim obj As New Member()
 
-        'Insert DateOfBaptismDTP.Value etc as Global variables 
-        For Each dr As DataRow In dt.Rows
-            obj.DateOfBaptismDTP.Value = dr(1).ToString()
-            obj.NameTxt.Text = dr(2).ToString()
-            obj.DateOfBirthDTP.Text = dr(3).ToString()
-            obj.PhoneTxt.Text = dr(4).ToString()
-            obj.MaritalComboBox.SelectedItem = dr(5).ToString()
-            obj.OccupationTxt.Text = dr(6).ToString()
-            obj.ResidenceComboBox.SelectedItem = dr(7).ToString()
-            obj.FatherTxt.Text = dr(8).ToString()
-            obj.FatherHomeTxt.Text = dr(9).ToString()
-            obj.MotherTxt.Text = dr(10).ToString()
-            obj.MotherHomeTxt.Text = dr(11).ToString()
-            Dim img() As Byte
-            img = dt.Rows(0)(12)
-            Dim ms As New MemoryStream(img)
-            obj.MemberPicture.Image = Image.FromStream(ms)
-            obj.SexComboBox.SelectedItem = dr(13).ToString()
-        Next
-        Con.Close()
-        clear()
-        Me.Hide()
+            'Insert DateOfBaptismDTP.Value etc as Global variables 
+            For Each dr As DataRow In dt.Rows
+                obj.DateOfBaptismDTP.Value = dr(1).ToString()
+                obj.NameTxt.Text = dr(2).ToString()
+                obj.DateOfBirthDTP.Text = dr(3).ToString()
+                obj.PhoneTxt.Text = dr(4).ToString()
+                obj.MaritalComboBox.SelectedItem = dr(5).ToString()
+                obj.OccupationTxt.Text = dr(6).ToString()
+                obj.ResidenceComboBox.SelectedItem = dr(7).ToString()
+                obj.FatherTxt.Text = dr(8).ToString()
+                obj.FatherHomeTxt.Text = dr(9).ToString()
+                obj.MotherTxt.Text = dr(10).ToString()
+                obj.MotherHomeTxt.Text = dr(11).ToString()
+                Dim img() As Byte
+                img = dt.Rows(0)(12)
+                Dim ms As New MemoryStream(img)
+                obj.MemberPicture.Image = Image.FromStream(ms)
+                obj.SexComboBox.SelectedItem = dr(13).ToString()
+            Next
+            Con.Close()
+            clear()
+            Me.Hide()
 
-        obj.Show()
-        obj.SaveBtn.Hide()
-        obj.UpdateBtn.Show()
+            obj.Show()
+            obj.SaveBtn.Hide()
+            obj.UpdateBtn.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles EditBtn.Click
@@ -251,18 +271,23 @@ Public Class MemberDetails
         SexLbl.Text = Nothing
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
-        If DOBapLbl.Text = Nothing Or NameLbl.Text = "" Or PhoneLbl.Text = "" Or SexLbl.Text = Nothing Or ResidenceLbl.Text = Nothing Then
-            MsgBox("Select Member to be deleted")
-        Else
-            Con.Open()
-            Dim query = "delete from MemberTbl where MemberPhone = '" & PhoneLbl.Text & "'"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("Member Deleted")
+        Try
+            If DOBapLbl.Text = Nothing Or NameLbl.Text = "" Or PhoneLbl.Text = "" Or SexLbl.Text = Nothing Or ResidenceLbl.Text = Nothing Then
+                MsgBox("Select Member to be deleted")
+            Else
+                Con.Open()
+                Dim query = "delete from MemberTbl where MemberPhone = '" & PhoneLbl.Text & "'"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("Member Deleted")
+                Con.Close()
+                clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-            clear()
-        End If
+        End Try
     End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
@@ -274,48 +299,59 @@ Public Class MemberDetails
     End Sub
 
     Sub AutoCompleteName()
-        Con.Open()
-        Dim query = "select * from MemberTbl order by MemberName asc"
-        Dim cmd As SqlCommand
-        cmd = New SqlCommand(query, Con)
-        Dim ds As New DataSet
-        Dim dadapter As SqlDataAdapter
-        dadapter = New SqlDataAdapter(cmd)
-        dadapter.Fill(ds, "MemberName")
-        Dim col As New AutoCompleteStringCollection
-        Dim i As Integer
-        For i = 0 To ds.Tables(0).Rows.Count - 1
-            col.Add(ds.Tables(0).Rows(i)("MemberName").ToString)
-        Next
-        Con.Close()
+        Try
+            Con.Open()
+            Dim query = "select * from MemberTbl order by MemberName asc"
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand(query, Con)
+            Dim ds As New DataSet
+            Dim dadapter As SqlDataAdapter
+            dadapter = New SqlDataAdapter(cmd)
+            dadapter.Fill(ds, "MemberName")
+            Dim col As New AutoCompleteStringCollection
+            Dim i As Integer
+            For i = 0 To ds.Tables(0).Rows.Count - 1
+                col.Add(ds.Tables(0).Rows(i)("MemberName").ToString)
+            Next
+            Con.Close()
 
-        SearchTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
-        SearchTxt.AutoCompleteCustomSource = col
-        SearchTxt.AutoCompleteMode = AutoCompleteMode.Suggest
+            SearchTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
+            SearchTxt.AutoCompleteCustomSource = col
+            SearchTxt.AutoCompleteMode = AutoCompleteMode.Suggest
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+        End Try
 
 
 
     End Sub
 
     Sub AutoCompleteNumber()
-        Con.Open()
-        Dim query = "select * from MemberTbl order by MemberPhone asc"
-        Dim cmd As SqlCommand
-        cmd = New SqlCommand(query, Con)
-        Dim ds As New DataSet
-        Dim dadapter As SqlDataAdapter
-        dadapter = New SqlDataAdapter(cmd)
-        dadapter.Fill(ds, "MemberPhone")
-        Dim col As New AutoCompleteStringCollection
-        Dim i As Integer
-        For i = 0 To ds.Tables(0).Rows.Count - 1
-            col.Add(ds.Tables(0).Rows(i)("MemberPhone").ToString)
-        Next
-        Con.Close()
+        Try
+            Con.Open()
+            Dim query = "select * from MemberTbl order by MemberPhone asc"
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand(query, Con)
+            Dim ds As New DataSet
+            Dim dadapter As SqlDataAdapter
+            dadapter = New SqlDataAdapter(cmd)
+            dadapter.Fill(ds, "MemberPhone")
+            Dim col As New AutoCompleteStringCollection
+            Dim i As Integer
+            For i = 0 To ds.Tables(0).Rows.Count - 1
+                col.Add(ds.Tables(0).Rows(i)("MemberPhone").ToString)
+            Next
+            Con.Close()
 
-        SearchTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
-        SearchTxt.AutoCompleteCustomSource = col
-        SearchTxt.AutoCompleteMode = AutoCompleteMode.Suggest
+            SearchTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
+            SearchTxt.AutoCompleteCustomSource = col
+            SearchTxt.AutoCompleteMode = AutoCompleteMode.Suggest
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+        End Try
+
 
 
 

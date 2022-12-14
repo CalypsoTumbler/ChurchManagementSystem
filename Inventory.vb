@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class Inventory
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
 
     Private Sub Populate()
         Con.Open()
@@ -14,6 +14,9 @@ Public Class Inventory
         adapter.Fill(ds)
         InventoryDGV.DataSource = ds.Tables(0)
         Con.Close()
+
+
+
     End Sub
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Me.Hide()
@@ -25,22 +28,27 @@ Public Class Inventory
         Dim Date_Change As Date
         Date_Change = Date.Now
 
-        If ItemNameTxt.Text = "" Then
-            MsgBox("Enter name of item")
-        ElseIf ItemQuantityTxt.Text = "" Then
-            MsgBox("Enter quantity of item")
-        Else
-            Con.Open()
-            Dim Query As String
-            Query = "insert into IventoryTbl values('" & ItemNameTxt.Text & "', '" & ItemQuantityTxt.Text & "', '" & Date_Change & "' )"
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(Query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("Item added successfully")
+        Try
+            If ItemNameTxt.Text = "" Then
+                MsgBox("Enter name of item")
+            ElseIf ItemQuantityTxt.Text = "" Then
+                MsgBox("Enter quantity of item")
+            Else
+                Con.Open()
+                Dim Query As String
+                Query = "insert into IventoryTbl values('" & ItemNameTxt.Text & "', '" & ItemQuantityTxt.Text & "', '" & Date_Change & "' )"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(Query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("Item added successfully")
+                Con.Close()
+                Populate()
+                Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-            Populate()
-            Clear()
-        End If
+        End Try
 
 
 
@@ -53,7 +61,7 @@ Public Class Inventory
     End Sub
 
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Populate()
+        'Populate()
     End Sub
 
     Private Sub Clear()
@@ -62,19 +70,25 @@ Public Class Inventory
         ' Key = 0
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
-        If Key = 0 Then
-            MsgBox("Select item to be deleted")
-        Else
-            Con.Open()
-            Dim query = "delete from IventoryTbl where ItemID = " & Key & ""
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("Item Deleted")
+        Try
+            If Key = 0 Then
+                MsgBox("Select item to be deleted")
+            Else
+                Con.Open()
+                Dim query = "delete from IventoryTbl where ItemID = " & Key & ""
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("Item Deleted")
+                Con.Close()
+                Populate()
+                Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-            Populate()
-            Clear()
-        End If
+        End Try
+
 
         'Con.Open()
         'Dim query = "delete from IventoryTbl where ItemID = " & Key & ""
@@ -108,19 +122,24 @@ Public Class Inventory
         Dim Date_Change As Date
         Date_Change = Date.Now
 
-        If Key = 0 Then
-            MsgBox("Select item to be edited")
-        Else
-            Con.Open()
-            Dim query = "Update IventoryTbl set ItemName = '" & ItemNameTxt.Text & "', ItemQuantity = '" & ItemQuantityTxt.Text & "', Last_Edited = '" & Date_Change & "' where ItemID = " & Key & ""
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand(query, Con)
-            cmd.ExecuteNonQuery()
-            MsgBox("Item Information Edited Successfully")
+        Try
+            If Key = 0 Then
+                MsgBox("Select item to be edited")
+            Else
+                Con.Open()
+                Dim query = "Update IventoryTbl set ItemName = '" & ItemNameTxt.Text & "', ItemQuantity = '" & ItemQuantityTxt.Text & "', Last_Edited = '" & Date_Change & "' where ItemID = " & Key & ""
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(query, Con)
+                cmd.ExecuteNonQuery()
+                MsgBox("Item Information Edited Successfully")
+                Con.Close()
+                Populate()
+                Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
             Con.Close()
-            Populate()
-            Clear()
-        End If
+        End Try
 
 
 

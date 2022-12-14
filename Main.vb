@@ -11,6 +11,21 @@ Public Class Main
     End Sub
 
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+        Try
+            Con.Open()
+            Dim sql = "select * from IventoryTbl"
+            Dim adapter As SqlDataAdapter
+            adapter = New SqlDataAdapter(sql, Con)
+            Dim builder As SqlCommandBuilder
+            builder = New SqlCommandBuilder(adapter)
+            Dim ds As DataSet
+            ds = New DataSet
+            adapter.Fill(ds)
+            Inventory.InventoryDGV.DataSource = ds.Tables(0)
+            Con.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+        End Try
         Me.Hide()
         Inventory.Show()
     End Sub
@@ -36,22 +51,27 @@ Public Class Main
         Anouncements.Show()
     End Sub
 
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-        Con.Open()
-        Dim Sql = "select MemberName, MemberSex, MemberPhone From MemberTbl Order By MemberName Asc"
-        Dim adapter As SqlDataAdapter
-        adapter = New SqlDataAdapter(Sql, Con)
-        Dim builder As SqlCommandBuilder
-        builder = New SqlCommandBuilder(adapter)
-        Dim ds As DataSet
-        ds = New DataSet
-        adapter.Fill(ds)
-        Attendance.AttendanceDGV.DataSource = ds.Tables(0)
-        Con.Close()
-        Me.Hide()
-        Attendance.Show()
+        Try
+            Con.Open()
+            Dim Sql = "select MemberName, MemberSex, MemberPhone From MemberTbl Order By MemberName Asc"
+            Dim adapter As SqlDataAdapter
+            adapter = New SqlDataAdapter(Sql, Con)
+            Dim builder As SqlCommandBuilder
+            builder = New SqlCommandBuilder(adapter)
+            Dim ds As DataSet
+            ds = New DataSet
+            adapter.Fill(ds)
+            Attendance.AttendanceDGV.DataSource = ds.Tables(0)
+            Con.Close()
+            Me.Hide()
+            Attendance.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message, vbInformation)
+        End Try
+
     End Sub
 
     Private Sub PictureBox7_Click(sender As Object, e As EventArgs) Handles PictureBox7.Click

@@ -13,7 +13,7 @@ Public Class Anouncements
         Main.Show()
     End Sub
 
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If RichTextBox1.Text = Nothing Then
             MsgBox("Enter message to be sent")
@@ -73,11 +73,11 @@ Public Class Anouncements
                 Dim rh As RequestHandshake = ex.getRequestHandshake()
                 Dim rhex As String = getRequestHandshakeDesc(rh)
                 'Exception catch code continues
-                MsgBox("Request Error: " + rh)
+                MsgBox("Request Error: " + rh, vbInformation)
 
             Catch ex As Exception
                 ' Exception catch code continues
-                MsgBox("Error: " + ex.Message)
+                MsgBox("Error: " + ex.Message, vbInformation)
             End Try
 
         End If

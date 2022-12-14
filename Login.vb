@@ -15,7 +15,7 @@ Public Class Login
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles UsernameTxt.TextChanged
 
     End Sub
-    Dim Con As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Calypso Tumbler\Downloads\ChurchManagementSystem\ChurchDb.mdf;Integrated Security=False;Connect Timeout=30")
+    Dim Con As New SqlConnection("Data Source=SQL8003.site4now.net;Initial Catalog=db_a91405_calypsotumbler001;User Id=db_a91405_calypsotumbler001_admin;Password=C@lypso2022")
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles LoginBtn.Click
         Try
             If UsernameTxt.Text = "" Then
@@ -40,6 +40,7 @@ Public Class Login
 
 
                 PasswordTxt.Text = password
+
                 Con.Open()
                 Dim query = "select * from UserTbl where UserName = '" & UsernameTxt.Text & "' and UserPassword = '" & password & "'"
                 Dim cmd = New SqlCommand(query, Con)
@@ -63,7 +64,9 @@ Public Class Login
             End If
 
         Catch ex As Exception
-            MsgBox("Connection timeout")
+            MsgBox(ex.Message, vbInformation)
+            Con.Close()
+            PasswordTxt.Text = ""
         End Try
 
 
@@ -95,5 +98,10 @@ Public Class Login
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Application.Exit()
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
     End Sub
 End Class
